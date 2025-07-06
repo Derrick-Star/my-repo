@@ -48,4 +48,67 @@ body {
     flex: 1;
     cursor: pointer;
   }
-  
+  body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+  overflow: hidden;
+}
+
+/* Simulated light rays */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 20%, transparent 70%);
+  animation: rays 10s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes rays {
+  from {
+    transform: translate(-25%, -25%) rotate(0deg);
+  }
+  to {
+    transform: translate(-25%, -25%) rotate(360deg);
+  }
+}
+
+/* Bubble effect */
+.bubble {
+  position: absolute;
+  bottom: -100px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: rise 10s infinite ease-in;
+  z-index: 0;
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
+}
+.bubble {
+  position: absolute;
+  bottom: -150px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  animation: rise 12s infinite ease-in;
+  z-index: 0;
+
+  /* Default larger size range */
+  width: 30px;
+  height: 30px;
+}
+@keyframes rise {
+  to {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
